@@ -22,7 +22,7 @@ namespace randraw
             help.AppendLine("- numdraws         number for rows to randomly select and output");
             help.AppendLine("- /nh              No Header (optional), specify if csv file does not have a header");
             help.AppendLine();
-            help.AppendLine("eg: randraw consumers.csv winners.csv 100");
+            help.AppendLine("eg: randraw 9c8c0d38-669f-4524-b03d-fe3309612c86 consumers.csv winners.csv 100");
             
             if (args.Length < 4)
             {
