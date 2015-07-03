@@ -37,6 +37,7 @@ namespace randraw
             {
                 this.Cursor = Cursors.WaitCursor;
                 this.lblStatus.Text = "Processing...";
+                this.Refresh();
                 var random = new RandomDraw();
                 random.Run(
                     this.txtKey.Text,
@@ -52,6 +53,7 @@ namespace randraw
             }
             finally
             {
+                this.Refresh();
                 this.Cursor = Cursors.Default;
             }
         }
