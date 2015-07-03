@@ -25,11 +25,10 @@ namespace randraw
             Console.WriteLine("Loaded " + rows.Count + " rows.");
 
             // determine row limits
-            var rowMin = 0;
-            var rowMax = rows.Count - 1;
+            var rowMin = 1;
+            var rowMax = rows.Count;
             if (!noHeader) rowMin++;
-
-            if (numRowsToSelect > rowMax - rowMin) numRowsToSelect = rowMax - rowMin;
+            if (numRowsToSelect > rowMax - rowMin + 1) numRowsToSelect = rowMax - rowMin + 1;
             Console.WriteLine("Retrieving random " + numRowsToSelect + " rows between "
                 + rowMin + " and " + rowMax + ".");
 
@@ -41,10 +40,10 @@ namespace randraw
             // output
             using (TextWriter writer = File.CreateText(outpath))
             {
-                if (!noHeader && rows.Any()) writer.WriteLine(rows[0]);
+                if (!noHeader) writer.WriteLine(rows[0]);
                 foreach (var randomi in randomRows)
                 {
-                    var line = rows.ElementAtOrDefault(randomi);
+                    var line = rows.ElementAtOrDefault(randomi - 1);
                     if (line != null) writer.WriteLine(line);
                 }
             }
